@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd">
+
+  <!-- Test table creation -->
+  <changeSet id="test-1" author="dev" context="test">
+    <createTable tableName="test_table">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="name" type="varchar(255)"/>
+      <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+    </createTable>
+  </changeSet>
+
+  <!-- Test data -->
+  <changeSet id="test-2" author="dev" context="test">
+    <insert tableName="test_table">
+      <column name="name" value="Test Record 1"/>
+    </insert>
+    <insert tableName="test_table">
+      <column name="name" value="Test Record 2"/>
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>
